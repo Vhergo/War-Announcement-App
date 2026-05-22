@@ -1,0 +1,296 @@
+var BDO_WAR_SCHEDULE = [
+  {
+    "date": "monday",
+    "node": "Calpheon",
+    "server": "Calpheon",
+    "tier": "T2 Capped",
+    "cap": "35"
+  },
+  {
+    "date": "monday",
+    "node": "Ulukita",
+    "server": "Ulukita",
+    "tier": "T2 Capped",
+    "cap": "45"
+  },
+  {
+    "date": "monday",
+    "node": "Valencia",
+    "server": "Valencia",
+    "tier": "Uncapped",
+    "cap": "55"
+  },
+  {
+    "date": "monday",
+    "node": "Edania",
+    "server": "Edania",
+    "tier": "Uncapped",
+    "cap": "60"
+  },
+  {
+    "date": "monday",
+    "node": "Balenos",
+    "server": "Balenos",
+    "tier": "T1 Capped",
+    "cap": "25"
+  },
+  {
+    "date": "monday",
+    "node": "Serendia",
+    "server": "Serendia",
+    "tier": "T1 Capped",
+    "cap": "25"
+  },
+  {
+    "date": "tuesday",
+    "node": "Calpheon",
+    "server": "Calpheon",
+    "tier": "T2 Capped",
+    "cap": "45"
+  },
+  {
+    "date": "tuesday",
+    "node": "Ulukita",
+    "server": "Ulukita",
+    "tier": "T2 Capped",
+    "cap": "35"
+  },
+  {
+    "date": "tuesday",
+    "node": "Valencia",
+    "server": "Valencia",
+    "tier": "Uncapped",
+    "cap": "60"
+  },
+  {
+    "date": "tuesday",
+    "node": "Edania",
+    "server": "Edania",
+    "tier": "Uncapped",
+    "cap": "50"
+  },
+  {
+    "date": "tuesday",
+    "node": "Balenos",
+    "server": "Balenos",
+    "tier": "T1 Capped",
+    "cap": "30"
+  },
+  {
+    "date": "tuesday",
+    "node": "Serendia",
+    "server": "Serendia",
+    "tier": "T1 Capped",
+    "cap": "30"
+  },
+  {
+    "date": "wednesday",
+    "node": "Calpheon",
+    "server": "Calpheon",
+    "tier": "T2 Capped",
+    "cap": "40"
+  },
+  {
+    "date": "wednesday",
+    "node": "Ulukita",
+    "server": "Ulukita",
+    "tier": "T2 Capped",
+    "cap": "50"
+  },
+  {
+    "date": "wednesday",
+    "node": "Valencia",
+    "server": "Valencia",
+    "tier": "Uncapped",
+    "cap": "60"
+  },
+  {
+    "date": "wednesday",
+    "node": "Edania",
+    "server": "Edania",
+    "tier": "Uncapped",
+    "cap": "75"
+  },
+  {
+    "date": "wednesday",
+    "node": "Balenos",
+    "server": "Balenos",
+    "tier": "T1 Capped",
+    "cap": "25"
+  },
+  {
+    "date": "wednesday",
+    "node": "Serendia",
+    "server": "Serendia",
+    "tier": "T1 Capped",
+    "cap": "25"
+  },
+  {
+    "date": "thursday",
+    "node": "Calpheon",
+    "server": "Calpheon",
+    "tier": "T2 Capped",
+    "cap": "40"
+  },
+  {
+    "date": "thursday",
+    "node": "Ulukita",
+    "server": "Ulukita",
+    "tier": "T2 Capped",
+    "cap": "30"
+  },
+  {
+    "date": "thursday",
+    "node": "Valencia",
+    "server": "Valencia",
+    "tier": "Uncapped",
+    "cap": "60"
+  },
+  {
+    "date": "thursday",
+    "node": "Edania",
+    "server": "Edania",
+    "tier": "Uncapped",
+    "cap": "50"
+  },
+  {
+    "date": "thursday",
+    "node": "Balenos",
+    "server": "Balenos",
+    "tier": "T1 Capped",
+    "cap": "30"
+  },
+  {
+    "date": "thursday",
+    "node": "Serendia",
+    "server": "Serendia",
+    "tier": "T1 Capped",
+    "cap": "30"
+  },
+  {
+    "date": "friday",
+    "node": "Calpheon",
+    "server": "Calpheon",
+    "tier": "T2 Capped",
+    "cap": "50"
+  },
+  {
+    "date": "friday",
+    "node": "Ulukita",
+    "server": "Ulukita",
+    "tier": "T2 Capped",
+    "cap": "40"
+  },
+  {
+    "date": "friday",
+    "node": "Valencia",
+    "server": "Valencia",
+    "tier": "Uncapped",
+    "cap": "75"
+  },
+  {
+    "date": "friday",
+    "node": "Edania",
+    "server": "Edania",
+    "tier": "Uncapped",
+    "cap": "60"
+  },
+  {
+    "date": "friday",
+    "node": "Balenos",
+    "server": "Balenos",
+    "tier": "T1 Capped",
+    "cap": "25"
+  },
+  {
+    "date": "friday",
+    "node": "Serendia",
+    "server": "Serendia",
+    "tier": "T1 Capped",
+    "cap": "25"
+  },
+  {
+    "date": "saturday",
+    "node": "Calpheon",
+    "server": "Calpheon",
+    "tier": "T2 Capped",
+    "cap": "100"
+  },
+  {
+    "date": "saturday",
+    "node": "Ulukita",
+    "server": "Ulukita",
+    "tier": "T2 Capped",
+    "cap": "100"
+  },
+  {
+    "date": "saturday",
+    "node": "Valencia",
+    "server": "Valencia",
+    "tier": "Uncapped",
+    "cap": "100"
+  },
+  {
+    "date": "saturday",
+    "node": "Edania",
+    "server": "Edania",
+    "tier": "Uncapped",
+    "cap": "100"
+  },
+  {
+    "date": "saturday",
+    "node": "Balenos",
+    "server": "Balenos",
+    "tier": "T1 Capped",
+    "cap": "100"
+  },
+  {
+    "date": "saturday",
+    "node": "Serendia",
+    "server": "Serendia",
+    "tier": "T1 Capped",
+    "cap": "100"
+  },
+  {
+    "date": "sunday",
+    "node": "Calpheon",
+    "server": "Calpheon",
+    "tier": "T2 Capped",
+    "cap": "55"
+  },
+  {
+    "date": "sunday",
+    "node": "Ulukita",
+    "server": "Ulukita",
+    "tier": "T2 Capped",
+    "cap": "45"
+  },
+  {
+    "date": "sunday",
+    "node": "Valencia",
+    "server": "Valencia",
+    "tier": "Uncapped",
+    "cap": "80"
+  },
+  {
+    "date": "sunday",
+    "node": "Edania",
+    "server": "Edania",
+    "tier": "Uncapped",
+    "cap": "65"
+  },
+  {
+    "date": "sunday",
+    "node": "Balenos",
+    "server": "Balenos",
+    "tier": "T1 Capped",
+    "cap": "30"
+  },
+  {
+    "date": "sunday",
+    "node": "Serendia",
+    "server": "Serendia",
+    "tier": "T1 Capped",
+    "cap": "30"
+  }
+];

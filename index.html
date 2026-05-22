@@ -3,137 +3,241 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>BDO War Announcement Builder</title>
+    <title>Warfront Poster Studio</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <main class="app-shell">
       <section class="controls-panel" aria-label="Announcement controls">
-        <div class="brand-block">
-          <span class="eyebrow">Black Desert Online</span>
-          <h1>War Announcement Builder</h1>
-        </div>
+        <header class="app-header">
+          <h1>Warfront Poster Studio</h1>
+        </header>
 
-        <div class="control-section">
-          <label class="field-label" for="warType">War Type</label>
-          <select id="warType">
-            <option value="nodewar">Nodewar</option>
-            <option value="siege">Siege</option>
-          </select>
-        </div>
+        <section class="form-section">
+          <h2>War Info</h2>
+          <div class="control-grid compact">
+            <label>
+              <span class="field-label">War Type</span>
+              <select id="warType">
+                <option value="nodewar">Nodewar</option>
+                <option value="siege">Siege</option>
+              </select>
+            </label>
+            <label>
+              <span class="field-label">Guild Name</span>
+              <input id="guildName" type="text" value="Your Guild">
+            </label>
+            <label>
+              <span class="field-label">Date</span>
+              <input id="warDate" type="date">
+            </label>
+            <label>
+              <span class="field-label">Start Time</span>
+              <input id="warTime" type="time" value="20:00">
+            </label>
+            <label>
+              <span class="field-label">Input Timezone</span>
+              <select id="timeZone">
+                <option value="America/Los_Angeles">Pacific</option>
+                <option value="America/New_York">Eastern</option>
+                <option value="America/Denver">Mountain</option>
+                <option value="America/Chicago">Central</option>
+                <option value="UTC">UTC</option>
+              </select>
+            </label>
+            <input id="channel" type="hidden" value="Balenos 1">
+          </div>
+        </section>
 
-        <div class="control-grid">
-          <label>
-            <span class="field-label">Guild Name</span>
-            <input id="guildName" type="text" value="Your Guild">
-          </label>
-          <label>
-            <span class="field-label">Date</span>
-            <input id="warDate" type="date">
-          </label>
-          <label>
-            <span class="field-label">Start Time</span>
-            <input id="warTime" type="time" value="20:00">
-          </label>
-          <label>
-            <span class="field-label">Channel</span>
-            <input id="channel" type="text" value="Balenos 1">
-          </label>
-        </div>
+        <p id="nodewarPrompt" class="helper-text nodewar-date-prompt">Select a date to load available nodes and caps.</p>
 
-        <div id="nodewarFields" class="control-grid">
-          <label>
-            <span class="field-label">Region</span>
-            <input id="region" type="text" value="Serendia">
-          </label>
-          <label>
-            <span class="field-label">Node</span>
-            <input id="nodeName" type="text" value="Northern Guard Camp">
-          </label>
-          <label>
-            <span class="field-label">Tier / Rules</span>
-            <input id="tierRules" type="text" value="T2, 70 cap, 60 min">
-          </label>
-          <label>
-            <span class="field-label">Objective</span>
-            <input id="objective" type="text" value="Hold pressure and control flex calls">
-          </label>
-        </div>
+        <section class="form-section" id="nodewarFields">
+          <h2>Nodewar Details</h2>
+          <div class="control-grid compact">
+            <label>
+              <span class="field-label">Region</span>
+              <select id="regionServer">
+                <option value="">Select date first</option>
+              </select>
+            </label>
+            <label>
+              <span class="field-label">Node</span>
+              <input id="nodeName" type="text" value="Northern Guard Camp">
+            </label>
+            <select id="tierRules" class="hidden-field" aria-hidden="true" tabindex="-1">
+              <option value="T1 Capped">T1 Capped</option>
+              <option value="T2 Capped" selected>T2 Capped</option>
+              <option value="Uncapped">Uncapped</option>
+            </select>
+            <input id="capDisplay" class="hidden-field" type="text" value="T2 Capped" readonly aria-hidden="true" tabindex="-1">
+          </div>
+        </section>
 
-        <div id="siegeFields" class="control-grid is-hidden">
-          <label>
-            <span class="field-label">Territory</span>
-            <input id="territory" type="text" value="Calpheon">
-          </label>
-          <label>
-            <span class="field-label">Castle / Area</span>
-            <input id="castleArea" type="text" value="Calpheon Castle">
-          </label>
-          <label>
-            <span class="field-label">Siege Rules</span>
-            <input id="siegeRules" type="text" value="Full annex prep, elephants on lead call">
-          </label>
-          <label>
-            <span class="field-label">Allies</span>
-            <input id="allies" type="text" value="TBD">
-          </label>
-        </div>
+        <section class="form-section is-hidden" id="siegeFields">
+          <h2>Siege Details</h2>
+          <div class="control-grid compact">
+            <label>
+              <span class="field-label">Territory</span>
+              <input id="territory" type="text" value="Calpheon">
+            </label>
+            <label>
+              <span class="field-label">Castle / Area</span>
+              <input id="castleArea" type="text" value="Calpheon Castle">
+            </label>
+            <label class="wide-field">
+              <span class="field-label">Siege Rules</span>
+              <input id="siegeRules" type="text" value="Full annex prep, elephants on lead call">
+            </label>
+            <label>
+              <span class="field-label">Allies</span>
+              <input id="allies" type="text" value="TBD">
+            </label>
+          </div>
+        </section>
 
-        <div class="control-section">
-          <label>
-            <span class="field-label">Enemy / Teamfight Guilds</span>
-            <textarea id="enemyGuilds" rows="3">EnemyGuild
+        <section class="form-section">
+          <h2>Teamfights</h2>
+          <div class="versus-form">
+            <label>
+              <span class="field-label">Left Side Guilds</span>
+              <textarea id="teamOneGuilds" rows="4">YourGuild
+AllyGuild</textarea>
+            </label>
+            <label>
+              <span class="field-label">Right Side Guilds</span>
+              <textarea id="teamTwoGuilds" rows="4">EnemyGuild
 FlexGuild
 ThirdParty</textarea>
-          </label>
-        </div>
+            </label>
+          </div>
+        </section>
 
-        <div class="control-section">
+        <section class="form-section">
+          <h2>Rules</h2>
           <label>
             <span class="field-label">Rules</span>
-            <textarea id="rules" rows="3">Be in voice 15 minutes early.
-Bring villa, church, furniture, elixirs, and food.
-Follow shotcaller comms and keep comms clear.</textarea>
+            <textarea id="rules" rows="7">Start on base
+Clear sticks
+2 mins to upgrade then live
+No town spawn
+No OOZ/Safezone/Red zone cannons/abuse
+No base cannons [ Hwacha render 150m ]
+No iframe CTG
+No Boats
+No flags in red zone
+1 Cannon Per Fort</textarea>
           </label>
-        </div>
+        </section>
 
-        <div class="control-section">
-          <label>
-            <span class="field-label">Extra Notes</span>
-            <textarea id="notes" rows="3">Post attendance before war. Ping leadership if you need a platoon swap.</textarea>
-          </label>
-        </div>
-
-        <div class="control-grid">
-          <label>
-            <span class="field-label">Shotcaller</span>
-            <input id="shotcaller" type="text" value="Main Caller">
-          </label>
-          <label>
-            <span class="field-label">Rally Time</span>
-            <input id="rallyTime" type="text" value="1 hour before war">
-          </label>
-        </div>
-
-        <div class="control-section">
-          <span class="field-label">Map</span>
+        <section class="form-section">
+          <h2>Map Export</h2>
           <div class="file-row">
             <input id="mapInput" type="file" accept="image/*">
             <button id="clearMap" type="button" class="secondary">Clear</button>
           </div>
-        </div>
+          <div class="control-grid compact">
+            <label class="toggle-row">
+              <input id="separateMap" type="checkbox">
+              <span>Export map separately</span>
+            </label>
+            <label>
+              <span class="field-label">Map Placement</span>
+              <select id="mapPlacement">
+                <option value="side">Right Side</option>
+                <option value="bottom">Bottom</option>
+              </select>
+            </label>
+            <label>
+              <span class="field-label">Separate Preview</span>
+              <select id="separateOrder">
+                <option value="post">Announcement</option>
+                <option value="map">Map</option>
+              </select>
+            </label>
+          </div>
+        </section>
 
-        <div class="control-section">
-          <span class="field-label">Theme Preset</span>
+        <div class="action-row">
+          <button id="downloadBtn" type="button" class="primary">Export PNG</button>
+          <button id="resetBtn" type="button" class="secondary">Reset Theme</button>
+        </div>
+      </section>
+
+      <section class="preview-panel" aria-label="Announcement preview">
+        <div id="previewWrap" class="preview-wrap">
+        <div id="announcement" class="announcement map-side">
+          <div class="announcement-bg"></div>
+          <header class="announcement-header">
+            <div>
+              <h2 id="previewTitle">Your Guild</h2>
+              <p id="previewSubtitle">Northern Guard Camp - Balenos 1</p>
+            </div>
+            <div class="date-block">
+              <span id="previewDateOnly">Select Date</span>
+              <strong id="previewTimeOnly">8:00 PM PST / 11:00 PM EST</strong>
+            </div>
+            <p id="previewTeamLine">YourGuild | AllyGuild vs EnemyGuild | FlexGuild | ThirdParty</p>
+          </header>
+
+          <div class="announcement-body">
+            <section class="briefing-card details-card">
+              <h3>War Details</h3>
+              <dl id="detailsList"></dl>
+            </section>
+
+            <section class="briefing-card rules-card">
+              <h3>Rules</h3>
+              <ul id="rulesList"></ul>
+            </section>
+
+            <section class="map-card">
+              <img id="mapPreview" alt="War map preview">
+              <div id="mapFallback">
+                <span>Map Pending</span>
+                <small>Add a map when one is available</small>
+              </div>
+            </section>
+          </div>
+        </div>
+        <div id="separateMapPreview" class="separate-map-preview">
+          <div class="separate-map-bg"></div>
+          <header>
+            <h2 id="separateMapTitle">Node Map</h2>
+            <p id="separateMapTeams">YourGuild | AllyGuild vs EnemyGuild | FlexGuild | ThirdParty</p>
+          </header>
+          <div class="separate-map-frame">
+            <img id="separateMapImage" alt="Separate map preview">
+            <div id="separateMapFallback">Map Pending</div>
+          </div>
+        </div>
+        </div>
+      </section>
+    </main>
+
+    <button id="settingsBtn" type="button" class="settings-fab" title="Theme settings" aria-label="Theme settings">⚙</button>
+
+    <dialog id="settingsDialog" class="settings-dialog">
+      <form method="dialog">
+        <header class="dialog-header">
+          <h2>Theme Settings</h2>
+          <button id="closeSettingsBtn" type="button" class="secondary">Close</button>
+        </header>
+
+        <section class="dialog-section">
+          <h3>Presets</h3>
           <div class="preset-row" id="presetRow" role="list"></div>
-        </div>
+        </section>
 
-        <details class="theme-editor">
-          <summary>Customize Theme</summary>
+        <section class="dialog-section">
+          <h3>Customize</h3>
           <div class="theme-grid">
             <label>
               <span class="field-label">Accent</span>
               <input id="accentColor" type="color" value="#d6a84f">
+            </label>
+            <label>
+              <span class="field-label">Secondary</span>
+              <input id="accentTwoColor" type="color" value="#b94747">
             </label>
             <label>
               <span class="field-label">Background</span>
@@ -153,66 +257,44 @@ Follow shotcaller comms and keep comms clear.</textarea>
                 <option value="Inter, Segoe UI, Arial, sans-serif">Modern Sans</option>
                 <option value="Georgia, 'Times New Roman', serif">Serif</option>
                 <option value="'Trebuchet MS', Segoe UI, sans-serif">Guild Notice</option>
+                <option value="Verdana, Geneva, sans-serif">Compact</option>
+                <option value="'Arial Black', Impact, sans-serif">Bold Impact</option>
+                <option value="'Courier New', Courier, monospace">Tactical Mono</option>
               </select>
             </label>
           </div>
-        </details>
+        </section>
 
-        <div class="action-row">
-          <button id="downloadBtn" type="button" class="primary">Export PNG</button>
-          <button id="saveThemeBtn" type="button" class="secondary">Save Theme</button>
-          <button id="resetBtn" type="button" class="secondary">Reset</button>
-        </div>
-      </section>
-
-      <section class="preview-panel" aria-label="Announcement preview">
-        <div id="announcement" class="announcement">
-          <div class="announcement-bg"></div>
-          <header class="announcement-header">
-            <div>
-              <p id="previewWarType" class="war-type">Nodewar Briefing</p>
-              <h2 id="previewTitle">Your Guild</h2>
-              <p id="previewSubtitle">Serendia - Northern Guard Camp</p>
-            </div>
-            <div class="date-block">
-              <span id="previewDate">Today</span>
-              <strong id="previewTime">20:00</strong>
-            </div>
-          </header>
-
-          <div class="announcement-body">
-            <section class="briefing-card primary-card">
-              <h3>War Details</h3>
-              <dl id="detailsList"></dl>
-            </section>
-
-            <section class="briefing-card guilds-card">
-              <h3>Teamfights</h3>
-              <ul id="guildList"></ul>
-            </section>
-
-            <section class="briefing-card rules-card">
-              <h3>Rules</h3>
-              <ul id="rulesList"></ul>
-            </section>
-
-            <section class="briefing-card notes-card">
-              <h3>Notes</h3>
-              <p id="previewNotes"></p>
-            </section>
-
-            <section class="map-card">
-              <img id="mapPreview" alt="War map preview">
-              <div id="mapFallback">
-                <span>Map Pending</span>
-                <small>Add a map when one is available</small>
-              </div>
-            </section>
+        <section class="dialog-section">
+          <h3>Layout</h3>
+          <div class="layout-grid">
+            <label><span class="field-label">Top Padding</span><input id="layoutTopPadding" type="range" min="16" max="80" value="32"></label>
+            <label><span class="field-label">Title Size</span><input id="layoutTitleSize" type="range" min="34" max="72" value="54"></label>
+            <label><span class="field-label">Guild Line Size</span><input id="layoutTeamSize" type="range" min="10" max="26" value="18"></label>
+            <label><span class="field-label">Left Panel Width</span><input id="layoutLeftWidth" type="range" min="420" max="760" value="565"></label>
+            <label><span class="field-label">Details Height</span><input id="layoutDetailsHeight" type="range" min="130" max="260" value="176"></label>
+            <label><span class="field-label">Rules Height</span><input id="layoutRulesHeight" type="range" min="260" max="560" value="454"></label>
+            <label><span class="field-label">Panel Gap</span><input id="layoutPanelGap" type="range" min="8" max="36" value="22"></label>
+            <label><span class="field-label">Rules Text Size</span><input id="layoutRulesFont" type="range" min="12" max="24" value="20"></label>
+            <label><span class="field-label">Rules Spacing</span><input id="layoutRulesSpacing" type="range" min="0" max="12" value="5"></label>
+            <label>
+              <span class="field-label">Map Fit</span>
+              <select id="layoutMapFit">
+                <option value="cover">Fill</option>
+                <option value="contain">Fit</option>
+              </select>
+            </label>
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
 
-    <script src="app.js"></script>
+        <footer class="dialog-actions">
+          <button id="saveThemeBtn" type="button" class="primary">Save Theme</button>
+          <button id="saveLayoutBtn" type="button" class="secondary">Save Layout</button>
+          <button id="resetLayoutBtn" type="button" class="secondary">Reset Layout</button>
+        </footer>
+      </form>
+    </dialog>
+
+    <script src="app.js?v=cap-data-2"></script>
   </body>
 </html>

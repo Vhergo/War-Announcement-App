@@ -6,10 +6,25 @@ A static frontend-only app for generating Black Desert Online Nodewar and Siege 
 
 - Nodewar and Siege form modes with different fields
 - Optional map upload
+- Bundled nodewar day/node/tier/member-cap data from `data/War Days and Caps.xlsx`
+- Date-driven node dropdown and automatic tier/cap display
+- PST/EST time display from a selected input timezone
+- Two-sided teamfight layout with a visual VS treatment
 - Live announcement preview
-- Theme presets and editable colors/fonts
+- Theme presets and editable colors/fonts in a settings popup
+- Side, bottom, or separate map export modes
 - Browser-side PNG export
 - No backend or build step required
+
+## Update War Schedule
+
+Replace `data/War Days and Caps.xlsx`, then run:
+
+```powershell
+python tools\import_schedule.py "data\War Days and Caps.xlsx"
+```
+
+The importer regenerates `data/schedule-data.json`, `data/schedule-data.js`, and the embedded app data used by GitHub Pages.
 
 ## Run Locally
 
